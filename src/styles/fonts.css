@@ -1,0 +1,98 @@
+/* Akrobat Font Family */
+@font-face {
+  font-family: 'Akrobat';
+  src:
+    url('./UI/Fonts/Acrobat/akrobat-thin.woff2') format('woff2'),
+    url('./UI/Fonts/Acrobat/akrobat-thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akrobat';
+  src:
+    url('./UI/Fonts/Acrobat/akrobat-extralight.woff2') format('woff2'),
+    url('./UI/Fonts/Acrobat/akrobat-extralight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akrobat';
+  src:
+    url('./UI/Fonts/Acrobat/akrobat-light.woff2') format('woff2'),
+    url('./UI/Fonts/Acrobat/akrobat-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akrobat';
+  src:
+    url('./UI/Fonts/Acrobat/akrobat-regular.woff2') format('woff2'),
+    url('./UI/Fonts/Acrobat/akrobat-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akrobat';
+  src:
+    url('./UI/Fonts/Acrobat/akrobat-semibold.woff2') format('woff2'),
+    url('./UI/Fonts/Acrobat/akrobat-semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akrobat';
+  src:
+    url('./UI/Fonts/Acrobat/akrobat-bold.woff2') format('woff2'),
+    url('./UI/Fonts/Acrobat/akrobat-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akrobat';
+  src:
+    url('./UI/Fonts/Acrobat/akrobat-extrabold.woff2') format('woff2'),
+    url('./UI/Fonts/Acrobat/akrobat-extrabold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Akrobat';
+  src:
+    url('./UI/Fonts/Acrobat/akrobat-black.woff2') format('woff2'),
+    url('./UI/Fonts/Acrobat/akrobat-black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Akrobat', sans-serif;
+  font-weight: 400;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+* {
+  font-family: inherit;
+  font-weight: inherit;
+}

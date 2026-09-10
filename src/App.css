@@ -1,0 +1,361 @@
+@import './styles/fonts.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background-color: #000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-container {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.page-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.page-container.fade-out {
+    opacity: 0;
+}
+
+/* Page0 Styles */
+.page0-container {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.page0-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.page0-line-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    overflow: hidden;
+    z-index: 2;
+}
+
+.page0-line-track {
+    display: flex;
+    width: fit-content;
+    animation: slideInfinite 30s linear infinite;
+}
+
+.page0-line {
+    display: block;
+    width: 2268px;
+    height: 109px;
+    flex-shrink: 0;
+}
+
+.page0-top-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* CardPage Styles */
+.card-page {
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.card-line-wrapper {
+    position: absolute;
+    left: 54%;
+    top: 0;
+    height: 100%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    z-index: 2;
+    width: 109px;
+}
+
+.card-line-track {
+    display: flex;
+    flex-direction: column;
+    width: 109px;
+    animation: slideVertical 15s linear infinite;
+}
+
+.card-line {
+    display: block;
+    flex-shrink: 0;
+}
+
+.card-text-container {
+    position: absolute;
+    right: 55px;
+    top: 85px;
+    width: 685px;
+    height: 865px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-family: 'Akrobat', sans-serif !important;
+    font-weight: 700;
+    font-size: 64px;
+    color: #72D8FF;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.card-text-scroll {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    padding-right: 10px;
+    transition: mask-image 0.3s ease;
+}
+
+.card-text-scroll.with-mask {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+.card-text-scroll::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+.card-text-content {
+    font-family: 'Akrobat', sans-serif !important;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.card-down-arrow {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    z-index: 11;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: bounce 1.5s infinite;
+}
+
+.card-down-arrow.visible {
+    opacity: 1;
+}
+
+.card-down-arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+.card-photo-container {
+    position: absolute;
+    left: -235px;
+    top: 45%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: ns-resize;
+}
+
+.card-photo {
+    transition: opacity 0.3s ease;
+}
+
+.card-photo.fade-out {
+    opacity: 0;
+}
+
+/* Подсказка hint.png */
+.card-hint {
+    position: fixed;
+    bottom: 220px;
+    right: 1155px;
+    z-index: 100;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    animation: hintBounce 0.8s ease-in-out infinite;
+}
+
+.card-hint.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: none;
+}
+
+.card-hint img {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+@keyframes hintBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(15px); }
+}
+
+/* Индикаторы фотографий */
+.card-indicators {
+    position: absolute;
+    left: 47px;
+    bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+}
+
+.card-indicator {
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.card-indicator:hover {
+    transform: scale(1.1);
+}
+
+.card-indicator img {
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Стили для параграфов текста */
+.card-text-paragraph {
+    margin-bottom: 20px;
+    font-family: 'Akrobat', sans-serif;
+    font-weight: 200;
+    font-size: 32px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.num-sign {
+    font-family: 'Akrobat', 'Arial', sans-serif;
+    font-weight: 100 !important;
+    font-size: 0.85em;
+    color: #dcdcdc;
+    display: inline-block;
+    letter-spacing: -0.5px;
+    opacity: 0.8;
+}
+
+/* Выделенный текст */
+.card-text-highlight {
+    font-weight: 400;
+    font-size: 42px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0px 0 20px 0;
+    text-shadow: 0 0 5px rgba(114, 216, 255, 0.3);
+}
+
+.card-text-highlight + .card-text-paragraph {
+    margin-top: 10px;
+}
+
+.placeholder-page {
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1a1a2e;
+    color: #72D8FF;
+}
+
+/* Дополнительная защита от выделения и перетаскивания */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Защита от зума на мобильных устройствах */
+html, body {
+    touch-action: pan-x pan-y;
+    -ms-touch-action: pan-x pan-y;
+}
+
+
+::selection {
+    background: transparent;
+}
+
+::-moz-selection {
+    background: transparent;
+}
+
+/* Защита от перетаскивания изображений */
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
+}
