@@ -1,73 +1,32 @@
-# React + TypeScript + Vite
+# Интерактивный киоск
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это приложение предназначено для использования в музеях и на выставках, посвященных советскому сверхзвуковому пассажирскому самолету Ту-144. 
 
-Currently, two official plugins are available:
+Проект представляет собой киоск-систему, которая реагирует на физические объекты (капсулы). При поднесении капсулы к считывателю (через COM-порт) на экране отображается соответствующая информация: история, фотографии, упоминания в фильмах, играх и сувенирах.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Основные возможности
 
-## React Compiler
+- **Считывание сигналов:** Подключение к COM-порту (по умолчанию COM5, 115200 бод) для получения номера капсулы.
+- **Динамический контент:** Отображение карточек с текстом и изображениями в зависимости от сигнала (от 0 до 10).
+- **Анимация и интерактив:** Плавные переходы, скроллинг текста, листание фотографий (свайпы/колесо мыши).
+- **Режим киоска:** Скрипт `start_kiosk.bat` автоматически запускает сервер и открывает браузер в полноэкранном режиме (Kiosk Mode) с защитой от жестов и контекстного меню.
+- **WebSocket:** Мгновенное обновление интерфейса при смене сигнала.
+- **Симуляция:** API для тестирования без физического оборудования.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠 Технологии
 
-## Expanding the ESLint configuration
+- **Frontend:** React, TypeScript, Vite, CSS (кастомные шрифты Akrobat).
+- **Backend:** Node.js, Express, Socket.IO, SerialPort.
+- **Управление:** COM-порт (RS-232).
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Установка и запуск
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1.  **Установите зависимости:**
+    ```bash
+    npm install
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2.  **Запуск в режиме разработки:**
+    ```bash
+    npm run dev
+    ```
